@@ -2,27 +2,44 @@ import React, { Component } from 'react';
 
 import { stopListService } from '../services/StopListService';
 
+const filterByValue = function (stopItem) {
+  return (
+    this.expr.test(stopItem.fullname) || this.expr.test(stopItem.displaystopid)
+  );
+};
+
 export class StopList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      stopList: []
+      stopList: [],
+      stopListFiltered: []
     };
+
   }
 
   componentDidMount() {
     stopListService.get().then((stopList) => {
-      this.setState({ stopList })
+      this.setState({ stopList, stopListFiltered: stopList })
     });
+  }
+
+  filterStops(event) {
+    this.setState({
+      stopListFiltered: this.state.stopList.filter(
+        filterByValue,
+        { expr: new RegExp(event.target.value, 'i') }
+      )
+    })
   }
 
   render() {
     return (
       <div id="stops-list" className="tab">
-        <input type="text" placeholder="Stop Number" />
+        <input type="text" placeholder="Filter" onChange={this.filterStops.bind(this)} />
         <ul>
-          {this.state.stopList.map((stop) => {
+          {this.state.stopListFiltered.map((stop) => {
             return <li key={stop.stopid}>{stop.displaystopid} - {stop.fullname}</li>;
           })}
         </ul>
