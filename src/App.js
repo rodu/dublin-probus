@@ -1,30 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
-import { BusStop } from './components/bus-stop';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { stopInfoService } from './services/stop-info-service';
-
-function StopList() {
-  return (
-    <div id="stops-list" className="tab">
-      <input type="text" placeholder="Stop Number" />
-      <BusStop></BusStop>
-      <input type="button" value="Load" />
-    </div>
-  );
-}
-
-function Favourites() {
-  return <div id="favourites" className="tab">Favourites</div>;
-}
-
-function TabItem({ name, value }) {
-  return (
-    <li>
-      <Link to={`/${name}`}>{value}</Link>
-    </li>
-  );
-}
+import { Header } from './components/Header';
+import { Sidebar } from './components/Sidebar';
+import { Dashboard } from './components/Dashboard';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -49,23 +29,9 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <div className="header">
-            Header
-          </div>
-          <div className="sidebar">
-            <ul>
-              <TabItem
-                value="Stop List"
-                name="stop-list"></TabItem>
-              <TabItem
-                value="Favourites"
-                name="favourites"></TabItem>
-            </ul>
-          </div>
-          <div className="dashboard">
-            <Route path="/stop-list" component={StopList} />
-            <Route path="/favourites" component={Favourites} />
-          </div>
+          <Header />
+          <Sidebar />
+          <Dashboard />
         </div>
       </Router>
     );
