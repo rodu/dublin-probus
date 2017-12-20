@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { stopInfoService } from './services/stop-info-service';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
@@ -15,14 +14,6 @@ class App extends Component {
 
   onStopNumberChange(event) {
     this.setState({ stopNumber: event.target.value });
-  }
-
-  loadStopData() {
-    const { stopNumber } = this.state;
-
-    stopInfoService(stopNumber).then((info) => {
-      console.log(info);
-    });
   }
 
   render() {
