@@ -23,7 +23,7 @@ export class StopList extends Component {
         <input type="text" placeholder="Stop Number" />
         <ul>
           {this.state.stopList.map((stop) => {
-            return <li key={stop.number}>{stop.number}</li>;
+            return <li key={stop.stopid}>{stop.displaystopid} - {stop.fullname}</li>;
           })}
         </ul>
       </div>

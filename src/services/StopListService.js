@@ -1,11 +1,12 @@
 class StopListService {
   get() {
-    return Promise.resolve([
-      { number: 1 },
-      { number: 2 },
-      { number: 3 },
-      { number: 4 }
-    ]);
+    return new Promise((resolve, reject) => {
+      fetch(`${process.env.PUBLIC_URL}/api/busstopinformation.json`)
+        .then((response) => response.json())
+        .then((data) => data.results)
+        .then(resolve)
+        .catch(reject);
+    });
   }
 }
 
