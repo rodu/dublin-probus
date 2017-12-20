@@ -36,7 +36,8 @@ export class StopList extends Component {
 
   render() {
     return (
-      <div id="stops-list" className="tab">
+      <div>
+        <h2>Stop List</h2>
         <input type="text" placeholder="Filter" onChange={this.filterStops.bind(this)} />
         <ul>
           {this.state.stopListFiltered.map((stop) => {

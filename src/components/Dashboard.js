@@ -5,7 +5,7 @@ import { StopList } from './StopList';
 import { Favourites } from './Favourites';
 
 
-export function Dashboard() {
+export function Dashboard(props) {
   return (
     <div className="dashboard">
       <Route path="/stop-list" component={StopList} />

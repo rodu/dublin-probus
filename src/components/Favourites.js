@@ -1,5 +1,9 @@
 import React from 'react';
 
 export function Favourites() {
-  return <div id="favourites" className="tab">Favourites</div>;
+  return (
+    <div>
+      <h2>Favourites</h2>
+      Favourites
+    </div>);
 }
