@@ -1,14 +1,17 @@
-.container {
+.grid-container {
   display: grid;
-  grid-template-columns: 120px 10px auto;
+  grid-template-columns: 120px auto;
   grid-template-rows: 60px auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
   grid-template-areas:
-    "header header header"
-    "sidebar . dashboard";
+    "header header"
+    "sidebar dashboard";
 }
 
 .header {
   grid-area: header;
+  background-color: #000;
 }
 
 .sidebar {
