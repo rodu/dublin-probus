@@ -1,5 +1,14 @@
 import React from 'react';
 
+import { StopDetailTable } from './StopDetailTable';
+
 export function StopDetail(props) {
-  return <h2>StopDetail</h2>;
+  const { stopid } = props.match.params;
+
+  return (
+    <div>
+      <h2>StopDetail ({stopid})</h2>
+      <StopDetailTable stopid={stopid}></StopDetailTable>
+    </div>
+  );
 }
