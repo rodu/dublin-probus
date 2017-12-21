@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { debounce } from 'lodash-decorators';
+
 import { stopListService } from '../services/StopListService';
 
 const filterByValue = function (stopItem) {
@@ -26,6 +28,7 @@ export class StopList extends Component {
     });
   }
 
+  @debounce(250)
   filterStops(event) {
     this.setState({
       stopListFiltered: this.state.stopList.filter(
