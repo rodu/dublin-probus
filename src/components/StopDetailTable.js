@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
-function loadStopDetail(stopid) {
-  return Promise.resolve([
-    { time: '9:00 am', route: '15' },
-    { time: '9:10 am', route: '83' }
-  ]);
-}
+import { stopInfoService } from '../services/StopInfoService';
 
 export class StopDetailTable extends Component {
   constructor(props) {
@@ -15,7 +10,7 @@ export class StopDetailTable extends Component {
   }
 
   componentDidMount() {
-    loadStopDetail(this.props.stopid).then((info) => {
+    stopInfoService.get(this.props.stopid).then((info) => {
       this.setState({ info })
     });
   }
