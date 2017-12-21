@@ -29,11 +29,11 @@ export class StopList extends Component {
   }
 
   @debounce(250)
-  filterStops(event) {
+  filterStops(value) {
     this.setState({
       stopListFiltered: this.state.stopList.filter(
         filterByValue,
-        { expr: new RegExp(event.target.value, 'i') }
+        { expr: new RegExp(value, 'i') }
       )
     })
   }
@@ -44,7 +44,7 @@ export class StopList extends Component {
         <h2>Stop List</h2>
         <input type="text"
           placeholder="Filter"
-          onChange={this.filterStops.bind(this)}
+          onChange={(event) => this.filterStops.call(this, event.target.value)}
           className="filter-field" />
         <ul>
           {this.state.stopListFiltered.map((stop) => {
