@@ -12,6 +12,13 @@
 .header {
   grid-area: header;
   background-color: #000;
+  color: #F5E76A;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.header span {
+  font-size: 8pt;
 }
 
 .sidebar {
@@ -20,6 +27,10 @@
 
 .dashboard {
   grid-area: dashboard;
+}
+
+.dashboard .stop-list .filter-field {
+  float: right;
 }
 
 .dashboard h2 {

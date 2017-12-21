@@ -3,7 +3,7 @@ import React from 'react';
 export function Header() {
   return (
     <div className="header">
-      Header
+      <h2>Dublin Bus <span>Real Time Passenger Information</span></h2>
     </div>
   );
 }
