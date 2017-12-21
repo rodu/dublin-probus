@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { stopListService } from '../services/StopListService';
 
@@ -44,7 +45,13 @@ export class StopList extends Component {
           className="filter-field" />
         <ul>
           {this.state.stopListFiltered.map((stop) => {
-            return <li key={stop.stopid}>{stop.displaystopid} - {stop.fullname}</li>;
+            return (
+              <li key={stop.stopid}>
+                <Link to={`/stop/${stop.stopid}`}>
+                  {stop.displaystopid} - {stop.fullname}
+                </Link>
+              </li>
+            );
           })}
         </ul>
       </div>
