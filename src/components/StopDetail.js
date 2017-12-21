@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { PageHeader } from './PageHeader';
 import { StopDetailTable } from './StopDetailTable';
 
 export function StopDetail(props) {
@@ -7,8 +8,8 @@ export function StopDetail(props) {
 
   return (
     <div>
-      <h2>StopDetail ({stopid})</h2>
-      <StopDetailTable stopid={stopid}></StopDetailTable>
+      <PageHeader value={`Stop Detail (${stopid})`} />
+      <StopDetailTable stopid={stopid} />
     </div>
   );
 }

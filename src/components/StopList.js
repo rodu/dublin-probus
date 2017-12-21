@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { debounce } from 'lodash-decorators';
 
+import { PageHeader } from './PageHeader';
 import { stopListService } from '../services/StopListService';
 
 const filterByValue = function (stopItem) {
@@ -41,7 +42,7 @@ export class StopList extends Component {
   render() {
     return (
       <div className="stop-list">
-        <h2>Stop List</h2>
+        <PageHeader value="Stop List" />
         <input type="text"
           placeholder="Filter"
           onChange={(event) => this.filterStops.call(this, event.target.value)}

@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { PageHeader } from './PageHeader';
+
 export function Favourites() {
   return (
     <div>
-      <h2>Favourites</h2>
+      <PageHeader value="Favourites" />
       Favourites
     </div>);
 }
